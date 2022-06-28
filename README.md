@@ -47,3 +47,22 @@ URI는 식별하고, URL는 위치를 가르킨다.
 |Cacheable|HTTP프로토콜을 그대로 사용하므로 기존 인프라 그대로 활용. 캐시를 사용하여 응답이 빠르다.|
 |LayeredSystem|Client는 REST API 서버만 호출한다. REST 서버는 다중 계층으로 구성|
 |Addressability|REST는 모든 유일한 object에대해 유일하고 직관적인 URI를 통해 접근하도록 한다. 웹사이트의 임지, 텍스트, DB 내용 등의 모든 자원에 고유한 ID인 HTTP URI를 부여|
+
+### REST의 단점
+1. 표준이 존재하지 않는다.
+2. 사용할 수 있는 메소드가 get, post, put, delete 4가지만 존재
+3. 형태가 제한적
+4. 구형 브라우저가 지원하지 못하는 (put, delete, pushState)부분이 존재
+
+그러나 다양한 클라이언트가 등장하거나, 여러 디바이스에서 통신 가능한 서버 프로그램이 필요하는 등
+REST가 필요한 상황이 매우 많다.
+
+### RESTf API
+REST를 기반으로 서비스 API를 구현한 것을 REST API라고 한다.   
+REST API는 사내 시스템들도 REST기반으로 시스템을 분산해 확장성과 재사용성을 높여 유지보수 및 운용을 편리하게 한다. 또한 HTTP 표준을 기반으로 구현하므로, HTTP를 지원하는 언어로 client, server를 구현할 수있다.   
+
+이러한 REST API를 제공하는 웹 서비스를 RESTful하다고 한다.   
+아래의 경우는 RESTful하지 못하다고 한다.
+> CRUD기능을 모두 post로만 처리
+
+> 라우트에 리소스, id외의 정보가 들어가는 경우 (/books/updateName)
