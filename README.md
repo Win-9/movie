@@ -16,6 +16,9 @@
 ---
 
 ## 2차
+
+[API정의서](https://github.com/Win-9/movie/blob/master/ApiGuide.docx)
+
 ### REST
 REST란 자원 이름으로 구분하여 해당 자원의 상태를 주고 받는 모든것을 말한다.   
 > 즉, 표현에 의한 상태전달
