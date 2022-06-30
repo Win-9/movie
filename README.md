@@ -60,7 +60,7 @@ URI는 식별하고, URL는 위치를 가르킨다.
 그러나 다양한 클라이언트가 등장하거나, 여러 디바이스에서 통신 가능한 서버 프로그램이 필요하는 등
 REST가 필요한 상황이 매우 많다.
 
-### RESTf API
+### REST API
 REST를 기반으로 서비스 API를 구현한 것을 REST API라고 한다.   
 REST API는 사내 시스템들도 REST기반으로 시스템을 분산해 확장성과 재사용성을 높여 유지보수 및 운용을 편리하게 한다. 또한 HTTP 표준을 기반으로 구현하므로, HTTP를 지원하는 언어로 client, server를 구현할 수있다.   
 
@@ -69,3 +69,47 @@ REST API는 사내 시스템들도 REST기반으로 시스템을 분산해 확�
 > CRUD기능을 모두 post로만 처리
 
 > 라우트에 리소스, id외의 정보가 들어가는 경우 (/books/updateName)
+---
+
+### HTTP 
+웹브라우저의 URL 을 통해 어느 웹사이트(도메인) 의 어느경로에 있는 페이지를 요청할지 나타내는 행위
+
+#### Request
+Request-Line은 URL정보, 요청방식(Method), HTTP버전정보제공 의 규칙을 나타낸다.
+아래 그림에서는 Request URL, Request Method 를 나타내고 있다.
+```
+Request-Line
+*(( general-header | request-header | entity-header ) CRLF)
+CRLF
+[ message-body ]
+```
+
+헤더에는 요청하는 클라이언트 PC, 브라우저정보, 사용자언어환경, 쿠키 등의 다양한 클라이언트 환경에 대한 정보를 가지고 있다.
+HHTTP본문영역, 주로 클라이언크가 입력한 데이터를 저장하는 영역이다.
+입력폼에 입력한 각종 데이터가 Method 방식에 따라 서버로 전달할 때 보안이 강화된 방식으로 message-body 에 넣어 전달
+
+#### Response
+HTTP Request 를 통해 요청된 정보에 대해 웹서버가 클라이언트에 보내는 응답형식 및 결과를 나타낸다.
+
+```
+Status-Line
+*(( general-header | response-header | entity-header ) CRLF)
+CRLF
+[ message-body ]
+```
+Status-Line은 HTTP버전정보 와 세자리 숫자값(200) 과 상태코드 값을 통해 응답결과 및 상태정보를 나타낸다.
+
+헤더는 각종 서버 및 웹사이트 관련 환경정보를 제공한다.
+
+message-body는 HTTP본문영역으로서 주로 서버에서 사용자에게 전달되는 HTML 소스 및 포함된 데이터를 저장하는 영역이다.
+
+
+1. 주소창에 URL을 입력후 엔터를 치면 URL을 해석하여 연결된 DNS서버로 이동하여 URL에 할당된 IP주소를 찾는다.
+2. 정확한 좌표를 얻기 위하여 기기의 고유값은 MAC주소를 활용하여 이동하게된다. 여러 라우터를 거쳐서 호스트를 찾는데, 이때 동적 라우팅 프로토콜이 적용되어 라우팅 테이블에서 현재 경로를 따라 자동으로 경로를 조절한다. 여러 네트워크 기기를 중계해서 사용자에게 도착하는데 이때 MAC주소를 사용하여 목적지를 찾는다. 이때 ARP가 사용된다.
+> ARP는 네트워크에서 IP주로를 MAC주소로 대응시키기 위해 사용되는 프로토콜
+
+3. ARP는 수신지의 IP를 기준으로 MAC주소를 조사한다.
+4. Client와 서버가 TCP 3 handShake를 거쳐 연결을 시도한다.
+5. 클라이언트는 GET,POST 등으로 서버에 요청하면 서버는 그에맞는 데이터와 상태를 응답한다.
+6. TCP종료를 위해 4 handShake를 거친다.
+
